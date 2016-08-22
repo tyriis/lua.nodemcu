@@ -9,8 +9,8 @@ function pong(milis)
 end
 
 function module.start()
-    print("application start")
-    print("IP address: " .. wifi.sta.getip())
+    --print("application start")
+    --print("IP address: " .. wifi.sta.getip())
     netcom.start(function()
         netcom.on('HEAP', 'NODE', function()
             netcom.publish({})
