@@ -1,0 +1,8 @@
+netcom = require('netcom')
+relay = require('relay')
+relay.start(2)
+--pir = require('pir')
+--sht21 = require('sht21')
+app    = require("application")
+config = require("config")
+require("setup").start()
