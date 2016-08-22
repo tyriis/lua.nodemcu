@@ -11,7 +11,4 @@ module.MQTT.PASSWORD  = ""            -- The above user password
 module.MQTT.CLIENTID = "ESP8266-" ..  node.chipid() -- The MQTT ID. Change to something you like
 module.MQTT.TOPIC = "node/01"
 
--- module.PIR = {}
--- module.PIR.PIN = 3
-
 return module
