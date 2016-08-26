@@ -22,9 +22,9 @@ the nodes are intended to work as autonomus satelites, sending theyr information
 What come next?
 ===============
 
-* - when connection to the wifi is not possible, not configured / no wifi in range the node should go in AP mode offering a simple configuration interface
-* - it should be possible to start a socket server to listen for incoming socket commands like restarting the node, configuring the wifi, reading the file system, write new files into the file system and doing other administration work
-* - the node only needs wifi and mqtt configuration to startup, once connected to the mqtt it send a message to a special channel to initialize the registration procedure of the server, the node and the server will then commnunicate the channel the node will send his messages.
-* - the node listen to an channel for actions, actions trigger previously registered callbacks on lua side.
-* - the node should be able to send data to the arduino
-* - on server application side (web ui) there is a place to manage the node via the socket server, update lua code, restart node, check health, debug
+#. when connection to the wifi is not possible, not configured / no wifi in range the node should go in AP mode offering a simple configuration interface
+#. it should be possible to start a socket server to listen for incoming socket commands like restarting the node, configuring the wifi, reading the file system, write new files into the file system and doing other administration work
+#. the node only needs wifi and mqtt configuration to startup, once connected to the mqtt it send a message to a special channel to initialize the registration procedure of the server, the node and the server will then commnunicate the channel the node will send his messages.
+#. the node listen to an channel for actions, actions trigger previously registered callbacks on lua side.
+#. the node should be able to send data to the arduino
+#. on server application side (web ui) there is a place to manage the node via the socket server, update lua code, restart node, check health, debug
