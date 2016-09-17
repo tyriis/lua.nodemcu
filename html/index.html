@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>ESP8266 - WebUI</title>
+    <link href="//cdn.muicss.com/mui-0.7.3/css/mui.min.css" rel="stylesheet" type="text/css" />
+    <script src="//cdn.muicss.com/mui-0.7.3/js/mui.min.js"></script>
+    <!--<script src="https://unpkg.com/vue@next/dist/vue.js"></script>-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/vue-router/0.7.10/vue-router.min.js"></script>
+</head>
+<body>
+    <div class="mui-appbar">
+        <a class="appbar-brand" href="/docs/v1/css-js">CSS/JS</a>
+        <div class="mui--text-display1">ESP8266 - WebUI</div>
+    </div>
+    <section data-role="app">
+    <div class="mui-container">
+        <div class="mui-panel">
+            <div class="mui--text-headline">node.info()</div>
+            <li>version: {{ info.majorVer + '.' + info.minorVer + '.' + info.devVer }}</li>
+            <li>chipid: {{ info.chipid }}</li>
+            <li>flashid: {{ info.flashid }}</li>
+            <li>flashsize: {{ info.flashsize }}</li>
+            <li>flashmode: {{ info.flashmode }}</li>
+            <li>flashspeed: {{ info.flashspeed }}</li>
+            <!--<button class="mui-btn mui-btn--primary mui-btn--raised">My Button</button>-->
+        </div>
+        <div class="mui-panel">
+            <div class="mui--text-headline">node.bootreason()</div>
+            <li>boot reason: {{ bootreason.reason }}</li>
+            <li>extended reset info: {{ bootreason.info }}</li>
+        </div>
+        <div class="mui-panel">
+            <div class="mui--text-headline">node.heap()</div>
+            <li>heap: {{ heap }}</li>
+        </div>
+        <div class="mui-panel">
+            <div class="mui--text-headline">filesystem</div>
+            <li>remaining: {{ filesystem.remaining }}</li>
+            <li>used: {{ filesystem.used }} / {{parseInt(filesystem.used / filesystem.available * 10000) / 100 }}%</li>
+            <li>available: {{ filesystem.available }}</li>
+            <progress :value="filesystem.used" :max="filesystem.available"></progress>
+        </div>
+        <button @click="test" class="mui-btn mui-btn--primary mui-btn--raised">test</button>
+    </div>
+    </section>
+    <script>
+        //Vue.use(VueRouter)
+        var vm = new Vue({
+            el: 'section[data-role=app]',
+            data: {
+                info: {
+                    majorVer: 1,
+                    minorVer: 5,
+                    devVer: 4,
+                    chipid: 14025607,
+                    flashid: 1458400,
+                    flashsize: 4194304,
+                    flashmode: 2,
+                    flashspeed: 40000000,
+                },
+                bootreason: {
+                    reason: 'reset (software?)',
+                    info: 'external reset'
+                },
+                heap: 41760,
+                filesystem: {
+                    remaining: 3375448,
+                    used: 9538,
+                    available: 3384986,
+                    files: [
+                        {
+                            name: 'init.lua',
+                            size: 1233
+                        }
+                    ]
+                },
+            },
+            methods: {
+                test: function(event) {
+                    console.log(event);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
