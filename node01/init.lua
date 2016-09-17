@@ -1,1 +1,1 @@
-dofile("_init.lua")
+dofile("app.lua")

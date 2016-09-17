@@ -1,10 +1,9 @@
 local module = {}
 
 module.WIFI = {}
-module.WIFI.SSID = ""
-module.WIFI.PASSWORD = ""
-
---module.NETWORK.HOSTNAME = ""
+module.WIFI.SSID = "dfdsf"
+module.WIFI.PASSWORD = "sadsaf"
+module.WIFI.HOSTNAME = "ESP8266-" .. node.chipid()
 
 module.MQTT = {}
 module.MQTT.BROKER = ""   -- Ip/hostname of MQTT broker
